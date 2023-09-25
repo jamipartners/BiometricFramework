@@ -4050,168 +4050,168 @@
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 1831,
+      "offset": 1905,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 1866,
+      "offset": 1940,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 1925,
+      "offset": 1999,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 1951,
+      "offset": 2025,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 1974,
+      "offset": 2048,
       "length": 3,
       "value": "320"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2000,
+      "offset": 2074,
       "length": 3,
       "value": "320"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2142,
+      "offset": 2216,
       "length": 5,
       "value": "127.5"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2175,
+      "offset": 2249,
       "length": 5,
       "value": "127.5"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "Array",
-      "offset": 2253,
+      "offset": 2327,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2296,
+      "offset": 2370,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2306,
+      "offset": 2380,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2315,
+      "offset": 2389,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2325,
+      "offset": 2399,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2584,
+      "offset": 2658,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2621,
+      "offset": 2695,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2702,
+      "offset": 2776,
       "length": 4,
       "value": "90.0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2707,
+      "offset": 2781,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2721,
+      "offset": 2795,
       "length": 5,
       "value": "200.0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2727,
+      "offset": 2801,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2740,
+      "offset": 2814,
       "length": 5,
       "value": "250.0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2746,
+      "offset": 2820,
       "length": 5,
       "value": "255.0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 2760,
+      "offset": 2834,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 3277,
+      "offset": 3351,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/apple\/Documents\/BiometricFramework\/ObjectDetection\/ModelDataHandler\/ModelDataHandler.swift",
       "kind": "StringLiteral",
-      "offset": 1636,
+      "offset": 1710,
       "length": 16,
       "value": "\"BiometricFramework.ModelDataHandler\""
     },
