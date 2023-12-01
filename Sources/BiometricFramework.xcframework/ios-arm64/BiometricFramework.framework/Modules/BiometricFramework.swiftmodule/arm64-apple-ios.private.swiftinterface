@@ -7,7 +7,6 @@ import Accelerate
 @_exported import BiometricFramework
 import CoreGraphics
 import CoreImage
-import CoreML
 import CoreVideo
 import Foundation
 import Photos
@@ -48,10 +47,9 @@ public protocol CameraFeedManagerDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
-  @objc deinit
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 public protocol BiometricViewControllerDelegate : AnyObject {
   func sendDataBack(data: Swift.String, code: Swift.Int)

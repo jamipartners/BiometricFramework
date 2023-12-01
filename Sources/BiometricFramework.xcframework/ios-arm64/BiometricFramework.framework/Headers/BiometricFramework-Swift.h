@@ -257,8 +257,6 @@ using UInt = size_t;
 #endif
 
 #if defined(__OBJC__)
-@class NSNotification;
-@class UITraitCollection;
 @class NSString;
 @class NSBundle;
 @class NSCoder;
@@ -269,12 +267,6 @@ SWIFT_CLASS("_TtC18BiometricFramework6BaseVC")
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
-- (void)boldTextStatusDidChange:(NSNotification * _Nonnull)notification;
-- (void)darkerSystemColorsStatusDidChange:(NSNotification * _Nonnull)notification;
-- (void)didLanguageTypeChange:(NSNotification * _Nonnull)notification;
-- (void)elementFocused:(NSNotification * _Nonnull)notification;
-- (void)shakeToUndoDidChange:(NSNotification * _Nonnull)notification;
-- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -321,14 +313,7 @@ SWIFT_CLASS("_TtC18BiometricFramework11BiometricVC")
 - (void)setDefaultFocusAndExposure;
 @end
 
-
-SWIFT_CLASS("_TtC18BiometricFramework18BlockBarButtonItem")
-@interface BlockBarButtonItem : UIBarButtonItem
-- (void)barButtonItemPressed:(UIBarButtonItem * _Nonnull)sender;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
+@class NSNotification;
 
 /// This class manages all camera related functionality
 SWIFT_CLASS("_TtC18BiometricFramework17CameraFeedManager")
