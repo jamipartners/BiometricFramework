@@ -11,11 +11,15 @@ import CoreVideo
 import Foundation
 import Photos
 import Swift
-import SwiftyJSON
 import UIKit
 import WebKit
 import _Concurrency
 import _StringProcessing
+public enum Yolov5 {
+}
+@objc @_hasMissingDesignatedInitializers public class ModelDataHandler : ObjectiveC.NSObject {
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers public class UIUtilities {
   public static func addCircle(atPoint point: CoreFoundation.CGPoint, to view: UIKit.UIView, color: UIKit.UIColor, radius: CoreFoundation.CGFloat)
   public static func addRectangle(_ rectangle: CoreFoundation.CGRect, to view: UIKit.UIView, color: UIKit.UIColor)
@@ -51,6 +55,39 @@ public protocol CameraFeedManagerDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
+}
+public protocol BiometricViewControllerDelegate : AnyObject {
+  func sendDataBack(data: Swift.String, code: Swift.Int)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class BiometricVC : BiometricFramework.BaseVC {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: BiometricFramework.BiometricViewControllerDelegate?
+  @_Concurrency.MainActor(unsafe) public var name: Swift.String
+  @_Concurrency.MainActor(unsafe) public var nic: Swift.String
+  @_Concurrency.MainActor(unsafe) public var issueDate: Swift.String
+  @_Concurrency.MainActor(unsafe) public var mobileNo: Swift.String
+  @_Concurrency.MainActor(unsafe) public var area: Swift.String
+  @_Concurrency.MainActor(unsafe) public var hand: Swift.String
+  @_Concurrency.MainActor(unsafe) public var processId: Swift.String
+  @_Concurrency.MainActor(unsafe) public var isDebugMode: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var modelDataHandler: BiometricFramework.ModelDataHandler?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didReceiveMemoryWarning()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension BiometricFramework.BiometricVC : BiometricFramework.CameraFeedManagerDelegate {
+  @_Concurrency.MainActor(unsafe) public func didOutput(pixelBuffer: CoreVideo.CVPixelBuffer)
+  @_Concurrency.MainActor(unsafe) public func sessionRunTimeErrorOccurred()
+  @_Concurrency.MainActor(unsafe) public func sessionWasInterrupted(canResumeManually resumeManually: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func sessionInterruptionEnded()
+  @_Concurrency.MainActor(unsafe) public func presentVideoConfigurationErrorAlert()
+  @_Concurrency.MainActor(unsafe) public func presentCameraPermissionsDeniedAlert()
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PreviewViewController : BiometricFramework.BaseVC {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
