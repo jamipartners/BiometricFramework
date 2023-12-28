@@ -286,7 +286,6 @@ SWIFT_CLASS("_TtC18BiometricFramework14BioAppDelegate")
 @class UILabel;
 @class UIImageView;
 @class UIBarButtonItem;
-@class UIStoryboardSegue;
 
 SWIFT_CLASS("_TtC18BiometricFramework11BiometricVC")
 @interface BiometricVC : BaseVC
@@ -300,11 +299,9 @@ SWIFT_CLASS("_TtC18BiometricFramework11BiometricVC")
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 @property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
-- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 @interface BiometricVC (SWIFT_EXTENSION(BiometricFramework))
