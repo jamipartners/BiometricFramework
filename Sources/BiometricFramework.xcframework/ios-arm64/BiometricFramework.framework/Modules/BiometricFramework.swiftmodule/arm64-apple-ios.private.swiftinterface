@@ -15,10 +15,19 @@ import UIKit
 import WebKit
 import _Concurrency
 import _StringProcessing
+public struct Result {
+}
+public struct Inference {
+}
+public typealias FileInfo = (name: Swift.String, extension: Swift.String)
 public enum Yolov5 {
 }
-@objc @_hasMissingDesignatedInitializers public class ModelDataHandler : ObjectiveC.NSObject {
+@objc public class ModelDataHandler : ObjectiveC.NSObject {
+  public init?(modelFileInfo: BiometricFramework.FileInfo, labelsFileInfo: BiometricFramework.FileInfo, threadCount: Swift.Int = 1)
   @objc deinit
+  public func runModel(onFrame pixelBuffer: CoreVideo.CVPixelBuffer) -> BiometricFramework.Result?
+  public func formatResults(boundingBox: [Swift.Float], outputClasses: [Swift.Float], outputScores: [Swift.Float], outputCount: Swift.Int, width: CoreFoundation.CGFloat, height: CoreFoundation.CGFloat) -> [BiometricFramework.Inference]
+  public func loadLabels(fileInfo: BiometricFramework.FileInfo)
 }
 @_hasMissingDesignatedInitializers public class UIUtilities {
   public static func addCircle(atPoint point: CoreFoundation.CGPoint, to view: UIKit.UIView, color: UIKit.UIColor, radius: CoreFoundation.CGFloat)
