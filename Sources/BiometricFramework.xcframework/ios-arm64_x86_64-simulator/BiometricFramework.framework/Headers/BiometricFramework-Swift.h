@@ -348,10 +348,10 @@ SWIFT_CLASS("_TtC18BiometricFramework11BiometricVC")
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified dialogView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dialogLabel;
 - (void)viewDidLoad;
-- (void)backWithSender:(UIBarButtonItem * _Nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)backWithSender:(UIBarButtonItem * _Nonnull)sender;
 - (IBAction)dialogButton:(UIButton * _Nonnull)sender;
 @property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -978,10 +978,10 @@ SWIFT_CLASS("_TtC18BiometricFramework11BiometricVC")
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified dialogView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dialogLabel;
 - (void)viewDidLoad;
-- (void)backWithSender:(UIBarButtonItem * _Nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)backWithSender:(UIBarButtonItem * _Nonnull)sender;
 - (IBAction)dialogButton:(UIButton * _Nonnull)sender;
 @property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
