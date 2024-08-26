@@ -133,10 +133,6 @@ public protocol BiometricViewControllerDelegate : AnyObject {
   @_Concurrency.MainActor(unsafe) public var hand: Swift.String
   @_Concurrency.MainActor(unsafe) public var processId: Swift.String
   @_Concurrency.MainActor(unsafe) public var isDebugMode: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var imei: Swift.String
-  @_Concurrency.MainActor(unsafe) public var ip_address: Swift.String
-  @_Concurrency.MainActor(unsafe) public var longitude: Swift.String
-  @_Concurrency.MainActor(unsafe) public var latitude: Swift.String
   @_Concurrency.MainActor(unsafe) public var buttonColor: Swift.String
   @_Concurrency.MainActor(unsafe) public var buttonTextColor: Swift.String
   @_Concurrency.MainActor(unsafe) weak public var bioDelegate: BiometricFramework.BiometricViewControllerDelegate?
@@ -219,7 +215,7 @@ public typealias Handler<T> = (BiometricFramework.Result) -> Swift.Void
   public func tokentRequest<T>(bundleId: Swift.String) async throws -> T where T : Swift.Decodable
   #endif
   #if compiler(>=5.3) && $AsyncAwait
-  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String) async throws -> T where T : Swift.Decodable
+  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String) async throws -> T where T : Swift.Decodable
   #endif
   @objc deinit
 }
