@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		Q3EEkQ7sGOew38ce9KXb2VrhtjQ=
+		nnz2wp1NLl1TPstPsEEANq3Osr0=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -116,17 +116,9 @@
 		<data>
 		YFGyvehKXw4JrVqZFP3WM+9oho8=
 		</data>
-		<key>anim.mp4</key>
-		<data>
-		qMoY5ohUuTqG5q6gJx6SGtVWq44=
-		</data>
 		<key>hand-label.txt</key>
 		<data>
 		PgGP905+ydYBh1wXpTO8IiDkdL4=
-		</data>
-		<key>handleft.gif</key>
-		<data>
-		mybLqgVpspRDk5CxT+OrQShVJTY=
 		</data>
 		<key>openGl.bat</key>
 		<data>
@@ -139,7 +131,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YpQ0rfYF85xrvYsNeB8plc9W2sNPTS230i8iXIF5VYs=
+			jJuAFKtUhRuEBSL9SVNRzZkTrRYYqL9MT7mfLqi7ALk=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -324,25 +316,11 @@
 			s53lnvgAvtM2ZqBlynts8HwGTrUl6bf5VSxrX4GYP3M=
 			</data>
 		</dict>
-		<key>anim.mp4</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			pnIFiRjaXJmp1olpPnbLz9w3ijra8FKS6aY9RfLTw2Y=
-			</data>
-		</dict>
 		<key>hand-label.txt</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			+taSbl0pMo0Eas/uyGHrt35XW5jcSBvnRd/4MISE/0k=
-			</data>
-		</dict>
-		<key>handleft.gif</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ywXgd8VTOa6ZgIqTAm43tz7tJPSz6hWmD77UC5FcLnA=
 			</data>
 		</dict>
 		<key>openGl.bat</key>
