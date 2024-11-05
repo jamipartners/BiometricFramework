@@ -1,23 +1,28 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BiometricFramework
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name BiometricFramework
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AVFoundation
 import Accelerate
 @_exported import BiometricFramework
 import CoreGraphics
 import CoreImage
+@_exported import CoreML
 import CoreVideo
+import DeveloperToolsSupport
 import Foundation
+import ImageIO
 import Photos
 import Swift
+import SwiftUI
 import UIKit
 import _Concurrency
 import _StringProcessing
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class InfoCell : UIKit.UITableViewCell {
+import _SwiftConcurrencyShims
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class InfoCell : UIKit.UITableViewCell {
   @available(iOS 3.0, *)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public protocol BioTokenServices : AnyObject {
@@ -38,11 +43,11 @@ public protocol BioReleaseService : AnyObject {
   final public let manager: BiometricFramework.APIManager
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CameraViewPortPassportR : UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassportR : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public struct NadraResponses : Swift.Decodable {
@@ -64,30 +69,30 @@ public struct NadraResponses : Swift.Decodable {
       get
     }
   }
-  public init(from decoder: Swift.Decoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CameraViewPortPassportInnerR : UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassportInnerR : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UserInputViewController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didReceiveMemoryWarning()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class UserInputViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didReceiveMemoryWarning()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension BiometricFramework.UserInputViewController : BiometricFramework.BiometricViewControllerDelegate {
-  @_Concurrency.MainActor(unsafe) public func sendDataBack(data: Swift.String, code: Swift.Int)
+  @_Concurrency.MainActor @preconcurrency public func sendDataBack(data: Swift.String, code: Swift.Int)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CameraViewPortPassport : UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassport : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public struct Result {
@@ -113,75 +118,79 @@ public enum Yolov5 {
   public func rgbDataFromBuffer(_ buffer: CoreVideo.CVPixelBuffer, byteCount: Swift.Int, isModelQuantized: Swift.Bool) -> Foundation.Data?
   public func colorForClass(withIndex index: Swift.Int) -> UIKit.UIColor
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CameraViewPortPassportInner : UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassportInner : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public protocol BiometricViewControllerDelegate : AnyObject {
   func sendDataBack(data: Swift.String, code: Swift.Int)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class BiometricVC : BiometricFramework.BaseVC {
-  @_Concurrency.MainActor(unsafe) weak public var delegate: BiometricFramework.BiometricViewControllerDelegate?
-  @_Concurrency.MainActor(unsafe) public var name: Swift.String
-  @_Concurrency.MainActor(unsafe) public var nic: Swift.String
-  @_Concurrency.MainActor(unsafe) public var issueDate: Swift.String
-  @_Concurrency.MainActor(unsafe) public var mobileNo: Swift.String
-  @_Concurrency.MainActor(unsafe) public var area: Swift.String
-  @_Concurrency.MainActor(unsafe) public var hand: Swift.String
-  @_Concurrency.MainActor(unsafe) public var processId: Swift.String
-  @_Concurrency.MainActor(unsafe) public var isDebugMode: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var buttonColor: Swift.String
-  @_Concurrency.MainActor(unsafe) public var buttonTextColor: Swift.String
-  @_Concurrency.MainActor(unsafe) weak public var bioDelegate: BiometricFramework.BiometricViewControllerDelegate?
-  @_Concurrency.MainActor(unsafe) public var result: BiometricFramework.Result?
-  @_Concurrency.MainActor(unsafe) public var previousInferenceTimeMs: Swift.Double
-  @_Concurrency.MainActor(unsafe) public var cameraFeedManager: BiometricFramework.CameraFeedManager {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class BiometricVC : BiometricFramework.BaseVC {
+  @_Concurrency.MainActor @preconcurrency weak public var delegate: (any BiometricFramework.BiometricViewControllerDelegate)?
+  @_Concurrency.MainActor @preconcurrency public var name: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var nic: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var issueDate: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var mobileNo: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var area: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var hand: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var processId: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var isDebugMode: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var imei: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var ip_address: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var longitude: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var latitude: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var buttonColor: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var buttonTextColor: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var base_url: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var previewImageOrVideo: Swift.String
+  @_Concurrency.MainActor @preconcurrency weak public var bioDelegate: (any BiometricFramework.BiometricViewControllerDelegate)?
+  @_Concurrency.MainActor @preconcurrency public var result: BiometricFramework.Result?
+  @_Concurrency.MainActor @preconcurrency public var previousInferenceTimeMs: Swift.Double
+  @_Concurrency.MainActor @preconcurrency public var cameraFeedManager: BiometricFramework.CameraFeedManager {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) public var modelDataHandler: BiometricFramework.ModelDataHandler?
-  @_Concurrency.MainActor(unsafe) public var isCapture: Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) public func printBundleIdentifier()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didReceiveMemoryWarning()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+  @_Concurrency.MainActor @preconcurrency public var modelDataHandler: BiometricFramework.ModelDataHandler?
+  @_Concurrency.MainActor @preconcurrency public var isCapture: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency public func printBundleIdentifier()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didReceiveMemoryWarning()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension BiometricFramework.BiometricVC : BiometricFramework.CameraFeedManagerDelegate {
-  @_Concurrency.MainActor(unsafe) public func didOutput(pixelBuffer: CoreVideo.CVPixelBuffer)
-  @_Concurrency.MainActor(unsafe) public func sessionRunTimeErrorOccurred()
-  @_Concurrency.MainActor(unsafe) public func sessionWasInterrupted(canResumeManually resumeManually: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) public func sessionInterruptionEnded()
-  @_Concurrency.MainActor(unsafe) public func presentVideoConfigurationErrorAlert()
-  @_Concurrency.MainActor(unsafe) public func presentCameraPermissionsDeniedAlert()
+  @_Concurrency.MainActor @preconcurrency public func didOutput(pixelBuffer: CoreVideo.CVPixelBuffer)
+  @_Concurrency.MainActor @preconcurrency public func sessionRunTimeErrorOccurred()
+  @_Concurrency.MainActor @preconcurrency public func sessionWasInterrupted(canResumeManually resumeManually: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func presentVideoConfigurationErrorAlert()
+  @_Concurrency.MainActor @preconcurrency public func presentCameraPermissionsDeniedAlert()
 }
 extension BiometricFramework.BiometricVC : BiometricFramework.BioTokenServices {
-  @_Concurrency.MainActor(unsafe) public func reloadData()
+  @_Concurrency.MainActor @preconcurrency public func reloadData()
 }
 extension BiometricFramework.BiometricVC : BiometricFramework.BioReleaseService {
-  @_Concurrency.MainActor(unsafe) public func reloadReleaseData()
+  @_Concurrency.MainActor @preconcurrency public func reloadReleaseData()
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PreviewViewController : BiometricFramework.BaseVC {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didReceiveMemoryWarning()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class PreviewViewController : BiometricFramework.BaseVC {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didReceiveMemoryWarning()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class UIUtilities {
   public static func addCircle(atPoint point: CoreFoundation.CGPoint, to view: UIKit.UIView, color: UIKit.UIColor, radius: CoreFoundation.CGFloat)
   public static func addRectangle(_ rectangle: CoreFoundation.CGRect, to view: UIKit.UIView, color: UIKit.UIColor)
   public static func addShape(withPoints points: [Foundation.NSValue]?, to view: UIKit.UIView, color: UIKit.UIColor)
-  public static func imageOrientation(fromDevicePosition devicePosition: AVFoundation.AVCaptureDevice.Position = .back) -> UIKit.UIImage.Orientation
   public static func createUIImage(from imageBuffer: CoreVideo.CVImageBuffer, orientation: UIKit.UIImage.Orientation) -> UIKit.UIImage?
   public static func createImageBuffer(from image: UIKit.UIImage) -> CoreVideo.CVImageBuffer?
   public static func rotate(image: UIKit.UIImage, degree: Swift.Int) -> UIKit.UIImage?
@@ -189,13 +198,20 @@ extension BiometricFramework.BiometricVC : BiometricFramework.BioReleaseService 
   public static func calculateScreenHeight(height: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
   @objc deinit
 }
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor @preconcurrency public func loadGif(name: Swift.String, bundle: Foundation.Bundle)
+}
+extension UIKit.UIImage {
+  public class func gif(data: Foundation.Data) -> UIKit.UIImage?
+  public class func gif(url: Swift.String) -> UIKit.UIImage?
+  public class func gif(name: Swift.String, bundle: Foundation.Bundle) -> UIKit.UIImage?
+}
 public protocol CameraFeedManagerDelegate : AnyObject {
   func didOutput(pixelBuffer: CoreVideo.CVPixelBuffer)
   func presentCameraPermissionsDeniedAlert()
   func presentVideoConfigurationErrorAlert()
   func sessionRunTimeErrorOccurred()
   func sessionWasInterrupted(canResumeManually resumeManually: Swift.Bool)
-  func sessionInterruptionEnded()
 }
 @objc @_hasMissingDesignatedInitializers public class CameraFeedManager : ObjectiveC.NSObject {
   @objc deinit
@@ -203,43 +219,39 @@ public protocol CameraFeedManagerDelegate : AnyObject {
 extension BiometricFramework.CameraFeedManager : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc dynamic public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class CustomNavigationController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CustomNavigationController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public typealias Handler<T> = (BiometricFramework.Result) -> Swift.Void
 @_hasMissingDesignatedInitializers public class APIManager {
-  #if compiler(>=5.3) && $AsyncAwait
   public func tokentRequest<T>(bundleId: Swift.String) async throws -> T where T : Swift.Decodable
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
-  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String) async throws -> T where T : Swift.Decodable
-  #endif
+  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String) async throws -> T where T : Swift.Decodable
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class PreviewView : UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public class var layerClass: Swift.AnyClass {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class PreviewView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public class var layerClass: Swift.AnyClass {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class BaseVC : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class BaseVC : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class ViewImageController : BiometricFramework.CustomNavigationController, UIKit.UIScrollViewDelegate {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didReceiveMemoryWarning()
-  @_Concurrency.MainActor(unsafe) @objc public func viewForZooming(in scrollView: UIKit.UIScrollView) -> UIKit.UIView?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class ViewImageController : BiometricFramework.CustomNavigationController, UIKit.UIScrollViewDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didReceiveMemoryWarning()
+  @_Concurrency.MainActor @preconcurrency @objc public func viewForZooming(in scrollView: UIKit.UIScrollView) -> UIKit.UIView?
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public struct ValidateToken : Swift.Decodable {
@@ -260,7 +272,7 @@ public struct ValidateToken : Swift.Decodable {
       get
     }
   }
-  public init(from decoder: Swift.Decoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension BiometricFramework.NadraResponses.CodingKeys : Swift.Equatable {}
 extension BiometricFramework.NadraResponses.CodingKeys : Swift.Hashable {}
