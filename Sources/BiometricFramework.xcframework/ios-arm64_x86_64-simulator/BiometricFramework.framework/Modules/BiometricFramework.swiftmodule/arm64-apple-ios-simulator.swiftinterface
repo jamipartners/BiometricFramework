@@ -86,7 +86,7 @@ public struct NadraResponses : Swift.Decodable {
   @objc deinit
 }
 extension BiometricFramework.UserInputViewController : BiometricFramework.BiometricViewControllerDelegate {
-  @_Concurrency.MainActor @preconcurrency public func sendDataBack(data: Swift.String, code: Swift.Int)
+  @_Concurrency.MainActor @preconcurrency public func sendDataBack(data: Swift.String, code: Swift.Int, totalAttempts: Swift.String)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassport : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
@@ -126,7 +126,7 @@ public enum Yolov5 {
   @objc deinit
 }
 public protocol BiometricViewControllerDelegate : AnyObject {
-  func sendDataBack(data: Swift.String, code: Swift.Int)
+  func sendDataBack(data: Swift.String, code: Swift.Int, totalAttempts: Swift.String)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class BiometricVC : BiometricFramework.BaseVC {
   @_Concurrency.MainActor @preconcurrency weak public var delegate: (any BiometricFramework.BiometricViewControllerDelegate)?
