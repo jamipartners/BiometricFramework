@@ -433,12 +433,14 @@ SWIFT_CLASS("_TtC18BiometricFramework10CurvedView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITraitCollection;
 @class UIVisualEffect;
 
 SWIFT_CLASS("_TtC18BiometricFramework23CustomActivityIndicator")
 @interface CustomActivityIndicator : UIVisualEffectView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)didMoveToSuperview;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 - (nonnull instancetype)initWithEffect:(UIVisualEffect * _Nullable)effect SWIFT_UNAVAILABLE;
 @end
 
@@ -1023,12 +1025,14 @@ SWIFT_CLASS("_TtC18BiometricFramework10CurvedView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITraitCollection;
 @class UIVisualEffect;
 
 SWIFT_CLASS("_TtC18BiometricFramework23CustomActivityIndicator")
 @interface CustomActivityIndicator : UIVisualEffectView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)didMoveToSuperview;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 - (nonnull instancetype)initWithEffect:(UIVisualEffect * _Nullable)effect SWIFT_UNAVAILABLE;
 @end
 
