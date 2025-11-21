@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
 // swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BiometricFramework
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
 import AVFoundation
 import Accelerate
 @_exported import BiometricFramework
@@ -176,6 +176,7 @@ public protocol BiometricViewControllerDelegate : AnyObject {
   @_Concurrency.MainActor @preconcurrency public var buttonTextColor: Swift.String
   @_Concurrency.MainActor @preconcurrency public var base_url: Swift.String
   @_Concurrency.MainActor @preconcurrency public var previewImageOrVideo: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var isEncrypted: Swift.Bool
   @_Concurrency.MainActor @preconcurrency weak public var bioDelegate: (any BiometricFramework.BiometricViewControllerDelegate)?
   @_Concurrency.MainActor @preconcurrency public var result: BiometricFramework.Result?
   @_Concurrency.MainActor @preconcurrency public var previousInferenceTimeMs: Swift.Double
@@ -286,7 +287,7 @@ extension BiometricFramework.CameraFeedManager : AVFoundation.AVCaptureVideoData
 public typealias Handler<T> = (BiometricFramework.Result) -> Swift.Void
 @_hasMissingDesignatedInitializers public class APIManager {
   public func tokentRequest<T>(bundleId: Swift.String) async throws -> T where T : Swift.Decodable
-  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String) async throws -> T where T : Swift.Decodable
+  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String, isEncrypted: Swift.Bool) async throws -> T where T : Swift.Decodable
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class PreviewView : UIKit.UIView {
