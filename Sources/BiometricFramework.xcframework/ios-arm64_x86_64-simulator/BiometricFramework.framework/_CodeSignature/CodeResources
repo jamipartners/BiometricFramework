@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		8m6gMvhIY0Vy/HxVf8PEJJhCUMw=
+		8vohVjyMK88opoVOlruweHFYGj0=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<data>
-		H1iKLSwlHCqBkvMy9m7XmvqrOOk=
+		C5XCNrHQuYRW94TgN49ACfvyD2o=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BiometricVC.nib</key>
 		<data>
@@ -34,31 +34,15 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		rUI8kyfIqPdKUN2tAXm2oSVF8R8=
-		</data>
-		<key>Base.lproj/Main.storyboardc/OEM-jt-OSQ-view-r5C-a5-zTZ.nib</key>
-		<data>
-		GRWEN1OF13PwBYsaVkuKT4UJn+M=
-		</data>
-		<key>Base.lproj/Main.storyboardc/PoP-Q0-9Sc-view-mfd-hL-x8T.nib</key>
-		<data>
-		UOu/kzAm50K63T2VsTyTjShA5N8=
-		</data>
-		<key>Base.lproj/Main.storyboardc/PreviewViewController.nib</key>
-		<data>
-		YsLrQ+s9HLGxVKgF8ZQrGuw4u50=
+		w0M9PJHZ5A8pjbmt5SQOAU4ZbeA=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UserInputViewController.nib</key>
 		<data>
 		m/d++RoGwLJPML7Bj1UvW2eRcYU=
 		</data>
-		<key>Base.lproj/Main.storyboardc/ViewImageController.nib</key>
-		<data>
-		KA9FOgPbP9DUytvib7k2gU6phqk=
-		</data>
 		<key>Headers/BiometricFramework-Swift.h</key>
 		<data>
-		RJtBgZTsOcRk6btXQ3y8LwKlGt0=
+		AF3CX+wG/R7w4E0Tzgv5/vwq2w8=
 		</data>
 		<key>Headers/BiometricFramework.h</key>
 		<data>
@@ -66,51 +50,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VAwfR0bw1McUL8OAKwLRT1QVOKA=
+		yzM4Qq5JsvHQOYUB0fipnVVenzY=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		R4RF1/eOvUXvdW3ZINEUAHye/tw=
+		LhYd3zT0nP3IWn6qgwIjgOVc8Vw=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Ev9uX+HsBx9UGuDkrOo6UlrFk0M=
+		QI6Y6dLqnQZVx0HMydW5UEQHABQ=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		HiN1ysdvBaf1QbL+JwrPxou/64I=
+		zlwut1d2Br6kU3cIWvnP8YI8nwM=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Ev9uX+HsBx9UGuDkrOo6UlrFk0M=
+		QI6Y6dLqnQZVx0HMydW5UEQHABQ=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		TUOM8xO36aLl2Tal/U0p5cRm5lU=
+		j8ar03cucDbasZ3nooGjJN3E+Vw=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		R4RF1/eOvUXvdW3ZINEUAHye/tw=
+		LhYd3zT0nP3IWn6qgwIjgOVc8Vw=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		bMY3sVGWDvwdtqAQtzme4ftwhUo=
+		vS4xryX3Lj/sqYECsoHwoPUcAO4=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Yednn/AfPQNTzEB0TAQ9HcVn8ww=
+		fx20OjHRB8i4dSjw4YoLq7agJJs=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		bMY3sVGWDvwdtqAQtzme4ftwhUo=
+		vS4xryX3Lj/sqYECsoHwoPUcAO4=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		K9Dvw/Bb0e998RtQ+fniBbLraqg=
+		7uS4R7/O6/dS7czaXH9h0/TlKug=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		8t27H1zmln9uJG1Z+7fPUqXLzr8=
+		tPG+x2YL5FBnL6AvmdBKmkXeQt8=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -131,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pebifiw9bjgHn2938bQYIfuKN7/Rn4RtvdeDakfODFA=
+			0cYZWTZ3KDNrc39xjQJGa1q1ARvHKOv1FSClgM1nlZ0=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -159,7 +143,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XM9xp2RRHq4DCxtpf93obWovBKfV2B8Bk/LZhI9Csig=
+			DJFo96Tsidt4iiW/K48Pw6ylICRB5HsnRhoCQlNB/XA=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BiometricVC.nib</key>
@@ -180,28 +164,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/76HCoztBbjLJTm+1AtF4EyTFwLxrqIYo1MSSTU25XA=
-			</data>
-		</dict>
-		<key>Base.lproj/Main.storyboardc/OEM-jt-OSQ-view-r5C-a5-zTZ.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			hcF5BjpvFOD/xEQNzMHzOUyesAzvMzqR+tKGojkg4wU=
-			</data>
-		</dict>
-		<key>Base.lproj/Main.storyboardc/PoP-Q0-9Sc-view-mfd-hL-x8T.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			M1BfJrvZglTy2vjzUm2oRr6K0hZsZiQC5dWh92l3pvs=
-			</data>
-		</dict>
-		<key>Base.lproj/Main.storyboardc/PreviewViewController.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			sIgaAaH4n3jPu04jRLQwk6hHHBMESRQeuuG2TrFlW0Q=
+			ZbrZCk6q7gVyyWVpvN1SxZyvchmvmEkk/96PcT9qwCk=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UserInputViewController.nib</key>
@@ -211,18 +174,11 @@
 			y156gAbToxubFEu8EefOU8d5Q7o6iA1leTTJaMwQJ08=
 			</data>
 		</dict>
-		<key>Base.lproj/Main.storyboardc/ViewImageController.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ZFtlZLUy+6sGB4XdSrgiy6Rpv35OJkefznjj7xfCSzs=
-			</data>
-		</dict>
 		<key>Headers/BiometricFramework-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			A0PtizdTpo+ybAQneiIkUbE9M65GmjENosHxdOwP1M4=
+			KWPs2VyWZbOPhpgrM3A+JYI6Xgsa9Kn1lHOlrvmqGP8=
 			</data>
 		</dict>
 		<key>Headers/BiometricFramework.h</key>
@@ -236,77 +192,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SJRNUqc+nmDqsTCdpkwkfaUKMLWgS409M7nc/QYT9e4=
+			bsFcOBQ3kcp0gGP1CpBxfI/pkS60A+vvrEQU/pqWSLA=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VQmSWmj0xST9ROV5TU8AhmwwyTF8jQhRj9XEIIGSECQ=
+			wv1g8f7zny1Kqn5ykZXJZBbfW3UbuMXdzihPeclOafs=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5Zc1r4GwZ7HrD2f7D96WHrwR/PiE+nvsErU6g19kVVw=
+			2Iqg8u1ceg6VfzYOrdSuYA6CfCrQNF46rsyouJNcbjM=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VQmSWmj0xST9ROV5TU8AhmwwyTF8jQhRj9XEIIGSECQ=
+			wv1g8f7zny1Kqn5ykZXJZBbfW3UbuMXdzihPeclOafs=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			68qO8xYuXtIolhtnzF5mWf9/H9RLxjE2WrxpcfLM/pk=
+			4wcdXno8Cp63+fz8LUjnW/ZtOrtiBnRxCmksnWK1eLU=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SJRNUqc+nmDqsTCdpkwkfaUKMLWgS409M7nc/QYT9e4=
+			bsFcOBQ3kcp0gGP1CpBxfI/pkS60A+vvrEQU/pqWSLA=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			de5BBk0aj+Mfe72E2CIYmBESgB0Gpjzqxn4RVrFjiCs=
+			fvDtalRsqeZjbiM7Fvzqo1v2pj0wtvapTp5YsZxFMl0=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			t7qvrZ6Exf+AdavMdK+4bEGXoziXQ2yBb0K3ev7LxHQ=
+			fPAeSJox+9afIR9Q97p6fdlwU5xqjwUYvxJwOfLSyJ8=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			de5BBk0aj+Mfe72E2CIYmBESgB0Gpjzqxn4RVrFjiCs=
+			fvDtalRsqeZjbiM7Fvzqo1v2pj0wtvapTp5YsZxFMl0=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iezdEEXt9O5ol3VOv58lM6ODbu3h43N2bmcJZfMjax4=
+			gS6NuEcwKaBsd3iF73cm8Ub5fNbI4Z75Y4yGX9d/5Tc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dbLeRBLiz4QXWtk9hZ6vXnQNIjTYmXNq44BStc8Kvls=
+			+ClMtICZXpEw8I2Ge3sejbEtcLi7zDLCW0AxSzVi2Rw=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>

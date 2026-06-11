@@ -7,5 +7,4 @@ framework module BiometricFramework {
 
 module BiometricFramework.Swift {
   header "BiometricFramework-Swift.h"
-  requires objc
 }
