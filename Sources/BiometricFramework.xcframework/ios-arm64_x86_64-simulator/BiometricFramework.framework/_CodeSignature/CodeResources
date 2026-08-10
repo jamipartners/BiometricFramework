@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		8vohVjyMK88opoVOlruweHFYGj0=
+		j2XlZTs3C00AgEqnMAZMROEosZo=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -20,21 +20,13 @@
 		<data>
 		ZVgM1+KwZcZnwhgaI0F7Bt1ba2c=
 		</data>
-		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
-		<data>
-		C5XCNrHQuYRW94TgN49ACfvyD2o=
-		</data>
-		<key>Base.lproj/Main.storyboardc/BiometricVC.nib</key>
-		<data>
-		el8wLEm9kWG6HhpazmBrVVkT0FU=
-		</data>
 		<key>Base.lproj/Main.storyboardc/I3r-aE-4d5-view-1ms-an-7AF.nib</key>
 		<data>
-		3GiKkXE+dFqzaW0Tk78UIRW0By4=
+		Q55kuuE66eS1kPcrUUnQI020IuY=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		w0M9PJHZ5A8pjbmt5SQOAU4ZbeA=
+		OW84EV4vZVUgqa4USrvF+hDhz0Q=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UserInputViewController.nib</key>
 		<data>
@@ -42,7 +34,7 @@
 		</data>
 		<key>Headers/BiometricFramework-Swift.h</key>
 		<data>
-		AF3CX+wG/R7w4E0Tzgv5/vwq2w8=
+		/65pMzQl1s79Dtkzd9TaN5ARtrc=
 		</data>
 		<key>Headers/BiometricFramework.h</key>
 		<data>
@@ -50,47 +42,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		yzM4Qq5JsvHQOYUB0fipnVVenzY=
+		brJSN5fxYmku1LzvFffPCxWzsd0=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		sFkvYSnJHO8P3i50T280Yl3MFb4=
+		+qVfLIaBGF9RhRmEeRVM36trhj8=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		QI6Y6dLqnQZVx0HMydW5UEQHABQ=
+		/BUMYskfZacYqQ79p8uMyb78wew=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		zlwut1d2Br6kU3cIWvnP8YI8nwM=
+		o09NteQHXwBcK09vncq0zuSCF0E=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		QI6Y6dLqnQZVx0HMydW5UEQHABQ=
+		/BUMYskfZacYqQ79p8uMyb78wew=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		j8ar03cucDbasZ3nooGjJN3E+Vw=
+		KpyKjxrnrHCGbnlmzo0LLwDDZfQ=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		sFkvYSnJHO8P3i50T280Yl3MFb4=
+		+qVfLIaBGF9RhRmEeRVM36trhj8=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		vS4xryX3Lj/sqYECsoHwoPUcAO4=
+		Be1D0hvJPYZFR8pcjLfHmvjPpRw=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		fx20OjHRB8i4dSjw4YoLq7agJJs=
+		a6Cbs2i2OmW+tBON+SN7LNsJsQ0=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		vS4xryX3Lj/sqYECsoHwoPUcAO4=
+		Be1D0hvJPYZFR8pcjLfHmvjPpRw=
 		</data>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		7uS4R7/O6/dS7czaXH9h0/TlKug=
+		eOtGjh9hfFUviue6qE1YZkR5y/E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -100,13 +92,29 @@
 		<data>
 		YFGyvehKXw4JrVqZFP3WM+9oho8=
 		</data>
+		<key>animation_guide.mp4</key>
+		<data>
+		iRkllPb8beYyEM6O8y+VzgS47Ok=
+		</data>
 		<key>hand-label.txt</key>
 		<data>
 		PgGP905+ydYBh1wXpTO8IiDkdL4=
 		</data>
+		<key>openCl.bat</key>
+		<data>
+		OmkighhlSAbkSMfAlCR9A2zHoRs=
+		</data>
 		<key>openGl.bat</key>
 		<data>
-		07NBwfWIs8umOdgPoOSnNMADfV8=
+		dd0BkqGGapzfaW8qe+Y3C69ipPA=
+		</data>
+		<key>thumb-label.txt</key>
+		<data>
+		JKeeV8P1YsA/VrNbDbGXAzqJvro=
+		</data>
+		<key>thumb_animation_guide.mp4</key>
+		<data>
+		6LOb+FeThu5nv4htEC1UCUmiZrE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -115,7 +123,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0cYZWTZ3KDNrc39xjQJGa1q1ARvHKOv1FSClgM1nlZ0=
+			YNgsEX1+tJn3CWy5Jdj2nzWGNYKbdMNWbYAySCO1pbw=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -139,32 +147,18 @@
 			VPNjf2cf66XxnoLsT0p/tEi7PPwPsYDwiapXH8jwU+I=
 			</data>
 		</dict>
-		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			DJFo96Tsidt4iiW/K48Pw6ylICRB5HsnRhoCQlNB/XA=
-			</data>
-		</dict>
-		<key>Base.lproj/Main.storyboardc/BiometricVC.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			dUpTrStRqplkppEbkDvmyzhtX7i77dc7WOw3HoEm85g=
-			</data>
-		</dict>
 		<key>Base.lproj/Main.storyboardc/I3r-aE-4d5-view-1ms-an-7AF.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kC+Y4eya6QDhPO0MrA66NRS1TtC1R/clzK9pxaxGFjs=
+			5r9vY7jD+i1MDNTKyWBbqKfTU3C6J7ULdoGjO2QwLmw=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZbrZCk6q7gVyyWVpvN1SxZyvchmvmEkk/96PcT9qwCk=
+			nBa0bP9tf6jZpBWKs6nKYqyH3SfYHsfg+8EBGA8ANMk=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UserInputViewController.nib</key>
@@ -178,7 +172,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KWPs2VyWZbOPhpgrM3A+JYI6Xgsa9Kn1lHOlrvmqGP8=
+			1muFR2md5VoN2+pC+l21/5BeCLzk654zA8VX5fUviS8=
 			</data>
 		</dict>
 		<key>Headers/BiometricFramework.h</key>
@@ -192,70 +186,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AT2pUT/sD87jSbLkM5ILc/o/0Bw6Yzlls7tKxTHb710=
+			uuQ3GpWSjXm7s40nJi8vTjU9fIuC5iRuSjo48MDd3+8=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wv1g8f7zny1Kqn5ykZXJZBbfW3UbuMXdzihPeclOafs=
+			ZILhGjTbEFGzLd4PM8wanWQBPgefjG4HaL689/PnKtQ=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2Iqg8u1ceg6VfzYOrdSuYA6CfCrQNF46rsyouJNcbjM=
+			4peLbiAPlbZrkxD5atLEMOuKtNywFtXCw9WVjQkJmSQ=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wv1g8f7zny1Kqn5ykZXJZBbfW3UbuMXdzihPeclOafs=
+			ZILhGjTbEFGzLd4PM8wanWQBPgefjG4HaL689/PnKtQ=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4wcdXno8Cp63+fz8LUjnW/ZtOrtiBnRxCmksnWK1eLU=
+			h+aV0SEC7ZwTBJS07kbFq+NPZ7Klxk5qRXX5bbPWhxg=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AT2pUT/sD87jSbLkM5ILc/o/0Bw6Yzlls7tKxTHb710=
+			uuQ3GpWSjXm7s40nJi8vTjU9fIuC5iRuSjo48MDd3+8=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fvDtalRsqeZjbiM7Fvzqo1v2pj0wtvapTp5YsZxFMl0=
+			fvN7y/J1msopMunfSIUXEMe9Gnyrq3QlU2u70z6Ya0w=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fPAeSJox+9afIR9Q97p6fdlwU5xqjwUYvxJwOfLSyJ8=
+			1H6O7pivR422M2MZ1n+ODP7VhEiPBSwhNR/b5xNQxJ4=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fvDtalRsqeZjbiM7Fvzqo1v2pj0wtvapTp5YsZxFMl0=
+			fvN7y/J1msopMunfSIUXEMe9Gnyrq3QlU2u70z6Ya0w=
 			</data>
 		</dict>
 		<key>Modules/BiometricFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gS6NuEcwKaBsd3iF73cm8Ub5fNbI4Z75Y4yGX9d/5Tc=
+			b0ITwes5RRnr40v53u4pIEdirAEbUsnBmITgsVV7mk4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -272,6 +266,13 @@
 			s53lnvgAvtM2ZqBlynts8HwGTrUl6bf5VSxrX4GYP3M=
 			</data>
 		</dict>
+		<key>animation_guide.mp4</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2Lxq4I1suTy+ljMChN6HbZOhdWT9m823+QIC73YziuM=
+			</data>
+		</dict>
 		<key>hand-label.txt</key>
 		<dict>
 			<key>hash2</key>
@@ -279,11 +280,32 @@
 			+taSbl0pMo0Eas/uyGHrt35XW5jcSBvnRd/4MISE/0k=
 			</data>
 		</dict>
+		<key>openCl.bat</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iqkTRoTgkOJo43KqHpf+1jKYF9vTuBlxgPiMDAIKZ3o=
+			</data>
+		</dict>
 		<key>openGl.bat</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7C27sSfGTGmM+FVsIKLXioktOqTnrEvo3p+Ekm741zU=
+			S7ZeJD962280HV1btVxCz27ihJA0KDiWB7Ups9WEwnI=
+			</data>
+		</dict>
+		<key>thumb-label.txt</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nIh848OnzyMZmcan48qETcL77DZJ3ZfMirvizjzds6c=
+			</data>
+		</dict>
+		<key>thumb_animation_guide.mp4</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Pn/MQCdFz0HxReg8I0pdp0zpXSg5qTaQtaib9fi4OKQ=
 			</data>
 		</dict>
 	</dict>

@@ -384,6 +384,40 @@ SWIFT_CLASS("_TtC18BiometricFramework10APIManager")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSString;
+@class NSBundle;
+@class NSCoder;
+/// Shared base for <code>SelectorViewController</code>, <code>BiometricVC</code> and <code>ThumbVC</code>.
+/// Direct translation of Android’s <code>BaseBiometricActivity</code>, which centralises the same
+/// four things for <code>SelectorActivity</code>, <code>Biometrics</code> and <code>BiometricThumb</code>:
+/// <ul>
+///   <li>
+///     the token bootstrap — <code>initAndFetchToken()</code> reads the server config, refuses an
+///     empty URL, calls <code>/validate</code> once and hands control back through <code>onTokenReady()</code>.
+///     Only the selector calls it; the capture screens skip the token step entirely and
+///     go straight to their camera, exactly as the Android comment on <code>Biometrics</code> says.
+///   </li>
+///   <li>
+///     the error dialog (<code>showDialog</code>), whose OK ends the visit with “Cancelled”.
+///   </li>
+///   <li>
+///     the exit-confirmation dialog, built on demand and thrown away on dismissal —
+///     Android constructs a fresh <code>Dialog</code> per showing, and building it in code here is
+///     what lets the <code>BiometricVC</code> storyboard scene be deleted.
+///   </li>
+///   <li>
+///     <code>finishParentWithResult</code>, the one exit that reports the verdict to the host.
+///   </li>
+/// </ul>
+/// What Android’s base has that this one deliberately does not: the intent-extra key
+/// constants (the keys became <code>BiometricConfig</code>’s fields) and the static application
+/// context (a UIViewController already has everything a Context provides).
+SWIFT_CLASS("_TtC18BiometricFramework15BaseBiometricVC")
+@interface BaseBiometricVC : UIViewController
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIApplication;
 @class UISceneSession;
 @class UISceneConnectionOptions;
@@ -404,32 +438,23 @@ SWIFT_CLASS("_TtC18BiometricFramework16BioSceneDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class PreviewView;
-@class OverlayView;
-@class UIImageView;
-@class UIView;
-@class UILabel;
-@class UIButton;
-@class UIBarButtonItem;
-@class NSString;
-@class NSBundle;
-@class NSCoder;
+/// The hand capture screen — Android’s <code>Biometrics</code>, name and role unchanged.
+/// Thumbs live in <code>ThumbVC</code> now; everything shared is inherited from <code>BaseBiometricVC</code>
+/// or read from <code>BiometricConfig.active</code> (the host’s Intent-extras analogue) and
+/// <code>BiometricSession</code> (the visit’s token, process ID and tallies). Like Android’s
+/// activity, this screen “skips the token step entirely and goes straight to camera
+/// setup” — the selector validated the visit before this screen could be reached.
+/// Views are built in code; the storyboard scene this class used to load from is gone.
 SWIFT_CLASS("_TtC18BiometricFramework11BiometricVC")
-@interface BiometricVC : UIViewController
-@property (nonatomic, weak) IBOutlet PreviewView * _Null_unspecified previewView;
-@property (nonatomic, weak) IBOutlet OverlayView * _Null_unspecified overlayView;
-@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified vImage;
-@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified backDialogView;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified backDialogLabel;
-@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified backDialogOk;
-@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified backDialogCancel;
+@interface BiometricVC : BaseBiometricVC
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
-- (void)backWithSender:(UIBarButtonItem * _Nonnull)sender;
-- (void)backDialogButtonOkWithSender:(UIBarButtonItem * _Nonnull)sender;
-- (void)backDialogButtonCancelWithSender:(UIBarButtonItem * _Nonnull)sender;
+- (void)viewDidLayoutSubviews;
+/// Leaving the SDK is not something to do by brushing the top-left corner of a
+/// screen held at arm’s length — the base class’s confirmation asks first.
+- (void)backWithConfirmation;
 @property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -451,6 +476,29 @@ SWIFT_CLASS("_TtC18BiometricFramework17CameraFeedManager")
 @class AVCaptureOutput;
 @class AVCaptureConnection;
 @interface CameraFeedManager (SWIFT_EXTENSION(BiometricFramework)) <AVCaptureVideoDataOutputSampleBufferDelegate>
+/// This method delegates the CVPixelBuffer of the frame seen by the camera currently.
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+@end
+
+/// Camera management for the thumb capture screen.
+/// The literal counterpart of Android’s <code>CameraProcessThumb</code>, which is a separate class
+/// from <code>CameraProcess</code> rather than a parameterisation of it — the two capture screens
+/// own their pipelines outright, so a change tuned for one subject cannot quietly change
+/// the other. The cost is stated plainly: a camera fix that applies to both subjects has
+/// to be applied in both files, exactly as it does on Android.
+/// The subject is fixed at construction. The shared manager used to expose a mutable
+/// <code>captureTarget</code> that <code>BiometricVC</code> assigned <em>after</em> <code>init</code> had already kicked off
+/// <code>configureSession()</code> on the session queue — an unsynchronised cross-thread read that
+/// usually resolved in the assignment’s favour because the main thread got there first,
+/// and occasionally did not, configuring a thumb session with the hand’s optics. An
+/// immutable value set before the queue is touched cannot lose that race.
+SWIFT_CLASS("_TtC18BiometricFramework22CameraFeedManagerThumb")
+@interface CameraFeedManagerThumb : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@interface CameraFeedManagerThumb (SWIFT_EXTENSION(BiometricFramework)) <AVCaptureVideoDataOutputSampleBufferDelegate>
 /// This method delegates the CVPixelBuffer of the frame seen by the camera currently.
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
@@ -512,6 +560,39 @@ SWIFT_CLASS("_TtC18BiometricFramework26CustomNavigationController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// The instructional clip shown between choosing an option and the camera opening.
+/// ── WHY HERE AND NOT ON THE CAPTURE SCREEN ───────────────────────────────────────
+/// The teaching moment is immediately before the user does the thing, and the capture
+/// screen is already the most crowded surface in the SDK — a live preview, a viewport, a
+/// progress bar, guidance text at both ends and a dialog layer over the top. Adding a
+/// video to it would mean either covering the preview it is trying to explain, or
+/// competing with it.
+/// Presented by the selector rather than by the capture screen, and dismissed before the
+/// capture screen is presented, so the presentation chain the SDK relies on is unchanged:
+/// <code>BiometricVC.sendBack</code> walks <code>presentingViewController?.presentingViewController</code> to
+/// find the host app, which assumes exactly two levels — capture inside the selector,
+/// selector inside the host. Leaving this controller in the middle of that chain would
+/// make a successful verification dismiss the wrong thing.
+/// ── THE CLIP LOOPS, AND LEAVING IS ALWAYS ALLOWED ────────────────────────────────
+/// It used to play once and gate the button on reaching the end, with a hint explaining
+/// why the button was dead and a Replay control to watch it again. All three of those
+/// existed to manage a single playthrough. A loop removes the need for every one of them:
+/// there is no end to wait for, so nothing to disable, nothing to explain, and nothing to
+/// replay — the clip simply keeps demonstrating until the user says they have got it.
+/// The button therefore says “I understand” rather than “Continue”. It is the user’s
+/// statement, not the app’s permission, and it is live from the first frame.
+SWIFT_CLASS("_TtC18BiometricFramework24GuideVideoViewController")
+@interface GuideVideoViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+/// Full-bleed, including behind the status bar and the home indicator.
+@property (nonatomic, readonly) BOOL prefersStatusBarHidden;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class UILabel;
 SWIFT_CLASS("_TtC18BiometricFramework8InfoCell")
 @interface InfoCell : UITableViewCell
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified fieldNameLabel;
@@ -558,9 +639,145 @@ SWIFT_CLASS("_TtC18BiometricFramework24RightVerticalProgressBar")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// The four-option entry screen: left/right thumb, left/right hand.
+/// Mirrors Android’s <code>SelectorActivity</code> — same four options, same “pick one, then
+/// Continue” interaction, and the same decision that the <em>selection</em> picks the model
+/// while the capture screens stay unaware of how they were reached.
+/// Presented as a card over a dimmed background rather than as a full screen, matching
+/// the Android dialog: the screen underneath stays visible, so the selection reads as a
+/// step inside the host app rather than as a separate app taking over.
+/// Built in code rather than in Main.storyboard on purpose: the storyboard is shared
+/// with the capture screen and its outlets, and a merge conflict in a storyboard XML
+/// is far more painful to resolve than one in a Swift file.
+/// ── THE ENTRY POINT, AS ON ANDROID ───────────────────────────────────────────────
+/// <code>SelectorActivity</code> is where the host’s Intent lands, where the token is validated
+/// once, and where the capture activities are launched from. This controller now plays
+/// all three roles: the host hands it a <code>BiometricConfig</code> (the Intent bundle), the
+/// inherited <code>initAndFetchToken()</code> runs the single <code>/validate</code> of the visit, and the
+/// capture screens are constructed here rather than by a factory the host supplies —
+/// the config forwarding Android does with <code>putExtras(getIntent().getExtras())</code> happens
+/// through <code>BiometricConfig.active</code>, so there is nothing to copy per screen.
+SWIFT_CLASS("_TtC18BiometricFramework22SelectorViewController")
+@interface SelectorViewController : BaseBiometricVC
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+/// Re-reads which options NADRA still accepts, every time this screen comes back into
+/// view.
+/// <code>viewWillAppear</code> and not <code>viewDidLoad</code>: the availability that matters is learned
+/// <em>after</em> a capture, and this controller is built once and then reused for the whole
+/// visit while capture screens are presented and dismissed on top of it. <code>viewDidLoad</code>
+/// runs before the first upload has happened, so it would only ever see the empty
+/// starting state.
+/// Before appearing, not after, so the cards are already correct in the dismiss
+/// animation rather than visibly greying out a beat later.
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+/// Runs the thumb model.
+/// ── WHY THIS IS NOT JUST <code>ModelDataHandler</code> WITH A DIFFERENT FILE ────────────────
+/// The four-finger model is YOLOv5, the thumb model is YOLOv8, and their output
+/// tensors are laid out differently:
+/// v5: [1, 6300, 6]  — detection-major. Detection i occupies six consecutive
+/// floats: x, y, w, h, objectness, class score.
+/// v8: [1, 6, 8400]  — channel-major. All 8400 x values, then all 8400 y values,
+/// and so on. A detection’s numbers are 8400 floats apart.
+/// and v8 dropped the objectness column entirely: confidence is just the highest
+/// class score. <code>PrePostProcessor</code> reads index 4 of each row as confidence, which in
+/// a v8 tensor is a class score belonging to a different detection.
+/// Feeding one format to the other’s decoder does not throw — it yields boxes built
+/// from unrelated floats. Hence a separate decoder rather than a parameter.
+/// Ported from Android’s <code>Detector.kt</code>, which is the reference implementation.
+SWIFT_CLASS("_TtC18BiometricFramework16ThumbDataHandler")
+@interface ThumbDataHandler : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// The thumb capture screen — Android’s <code>BiometricThumb</code>, as its own class.
+/// ── WHY A SEPARATE CONTROLLER ────────────────────────────────────────────────────
+/// <code>BiometricVC</code> carried both subjects, branched on <code>captureTarget.isThumb</code> at fifty
+/// sites, and every hand fix risked the thumb flow and vice versa. Android never merged
+/// them: <code>Biometrics</code> and <code>BiometricThumb</code> are siblings over separate camera helpers.
+/// This class is that shape on iOS — thumb geometry, thumb capture, thumb guidance, and
+/// a <code>CameraFeedManagerThumb</code> of its own, with everything shared inherited from
+/// <code>BaseBiometricVC</code> — the dialogs, the result finishing, and the config accessors
+/// (<code>nic</code>, <code>imei</code>, <code>processId</code>, <code>token</code> …) that every screen inherits rather than
+/// having copied onto it.
+/// ── NO TOKEN STEP ────────────────────────────────────────────────────────────────
+/// The selector validated the visit’s token before this screen could be reached, so —
+/// like Android’s activity, whose comment reads “skips the token step entirely and goes
+/// straight to camera setup” — <code>viewWillAppear</code> starts the camera unconditionally.
+/// Views are built in code; this screen has no storyboard scene.
+SWIFT_CLASS("_TtC18BiometricFramework7ThumbVC")
+@interface ThumbVC : BaseBiometricVC
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+@property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
+- (void)viewDidLayoutSubviews;
+- (void)backWithConfirmation;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@interface ThumbVC (SWIFT_EXTENSION(BiometricFramework))
+- (void)runModelOnPixelBuffer:(CVPixelBufferRef _Nonnull)pixelBuffer;
+@end
+
+@interface ThumbVC (SWIFT_EXTENSION(BiometricFramework))
+- (void)setDefaultFocusAndExposure;
+@end
+
+/// The thumb viewport: a dimmed screen with an arch-shaped cut-out, matching Android’s
+/// <code>ThumbShapeView</code> (outer) and <code>ThumbShapeViewInner</code> (inner).
+/// ── WHY ONE VIEW AND NOT THREE ────────────────────────────────────────────────────
+/// Android has three overlapping full-screen views — outer, inner, and a green copy of
+/// the outer that is swapped in when the thumb seats. Each redraws the whole screen and
+/// erases its own hole with <code>PorterDuff.CLEAR</code>. Stacking them works there because every
+/// layer punches through the one below. Doing the same on iOS would mean three
+/// full-screen views each dimming the camera, so the overlap would read as three
+/// different shades of grey. One view drawing both holes into a single mask gives the
+/// same picture with one layer, and the red/green swap becomes a property.
+/// ── WHY LAYERS AND NOT <code>draw(_:)</code> ─────────────────────────────────────────────────
+/// This started as a single <code>draw(_:)</code> that filled a dim rect and cleared a hole. That
+/// cannot animate: <code>setNeedsDisplay</code> redraws instantly, so the red/green swap was a
+/// hard cut, there was no way to show how far through the hold the user was, and
+/// nothing on screen indicated the app was actively looking. Shape layers animate for
+/// free and the geometry is unchanged — <code>outerRect</code> and <code>innerRect</code> still produce
+/// exactly the same numbers the gating is tuned against.
+/// ── GEOMETRY ──────────────────────────────────────────────────────────────────────
+/// Derived from the Java rather than eyeballed. Outer, from <code>UtilHelper</code>:
+/// \code
+/// topMargin = bottomMargin = H * (PARENT_MARGIN + 0.05)    = 0.25 H
+/// viewportMargin           = W * 0.60
+/// heightFrame = H - top - bottom                           = 0.50 H
+/// widthFrame  = W * increaseWidthOuter - viewportMargin    = 1.07W - 0.60W = 0.47 W
+///
+/// \endcodeand inner uses 0.33 / 0.66 in place of 0.25 / 0.60, giving 0.34 H by 0.41 W.
+/// The frame is then centred and inset horizontally by <code>widthMarginOuter / 2</code>.
+/// The literal 50 / 52 / 160 in the Java are raw Android <em>pixels</em>, not dp — they only
+/// hold their proportions on the density they were tuned at. They are expressed here as
+/// fractions of a 1080 px reference width so the shape survives the move to iOS points.
+SWIFT_CLASS("_TtC18BiometricFramework13ThumbViewPort")
+@interface ThumbViewPort : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+@end
+
 @class UITextField;
 @class UISwitch;
+@class UIButton;
 @class NSNotification;
+/// The demo host — iOS’s <code>HomeActivity</code>.
+/// Not part of the SDK. It plays the role a real client (a bank’s app) plays in
+/// production: collect the person’s details, build a <code>BiometricConfig</code>, present
+/// <code>SelectorViewController</code>, and receive the verdict through
+/// <code>BiometricViewControllerDelegate</code>. The SDK’s entry point is the selector; nothing
+/// below it knows this screen exists.
+/// Everything hardcoded here — the test CNIC, the IMEI, the coordinates, the
+/// development <code>baseURL</code> — belongs to the demo and must never move back into the SDK.
 SWIFT_CLASS("_TtC18BiometricFramework23UserInputViewController")
 @interface UserInputViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified name;
@@ -571,6 +788,7 @@ SWIFT_CLASS("_TtC18BiometricFramework23UserInputViewController")
 @property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified debugMode;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified labelResult;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (IBAction)openBiometric:(UIButton * _Nonnull)sender;
 - (void)keyboardWillShowWithNotification:(NSNotification * _Nonnull)notification;
@@ -585,6 +803,20 @@ SWIFT_CLASS("_TtC18BiometricFramework19VerticalProgressBar")
 - (void)drawRect:(CGRect)rect;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+/// Dims everything outside the hand viewport, so the box reads as the thing to aim at.
+/// The thumb viewport dims itself because it <em>is</em> a full-screen view with a hole in it.
+/// The hand viewports cannot: <code>CameraViewPortPassport</code> is sized to the box, so its
+/// bounds are the target and it has no way to paint outside them. This sits behind
+/// them at full size and punches the hole instead.
+/// Kept separate from the curved views rather than folded into them so the existing
+/// hand geometry — which is tuned and working — is not touched.
+SWIFT_CLASS("_TtC18BiometricFramework14ViewPortDimmer")
+@interface ViewPortDimmer : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)drawRect:(CGRect)rect;
 @end
 
 #endif // defined(__OBJC__)
