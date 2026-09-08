@@ -15,7 +15,7 @@ import CryptoKit
 import DeveloperToolsSupport
 import Foundation
 import ImageIO
-import Photos
+import Metal
 import Swift
 import SwiftUI
 import UIKit
@@ -373,6 +373,7 @@ extension BiometricFramework.CameraFeedManager : AVFoundation.AVCaptureVideoData
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public class var layerClass: Swift.AnyClass {
     @objc get
   }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
