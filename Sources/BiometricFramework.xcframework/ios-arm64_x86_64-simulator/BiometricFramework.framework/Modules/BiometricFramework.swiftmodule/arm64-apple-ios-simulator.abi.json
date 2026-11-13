@@ -17901,70 +17901,70 @@
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3304,
+      "offset": 3305,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3306,
+      "offset": 3307,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3318,
+      "offset": 3319,
       "length": 3,
       "value": "142"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3322,
+      "offset": 3323,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3333,
+      "offset": 3334,
       "length": 2,
       "value": "91"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3336,
+      "offset": 3337,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3348,
+      "offset": 3349,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 23226,
+      "offset": 24146,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 28724,
+      "offset": 29644,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/SelectorViewController.swift",
       "kind": "Array",
-      "offset": 28759,
+      "offset": 29679,
       "length": 480,
       "value": "[\"Slowly slide your hand into the frame\", \"When you see \"Please hold\", do not move your hand\", \"Keep your hand flat with fingers together\", \"Avoid shiny or bright backgrounds behind your hand (e.g. laptop screen, window)\", \"Make sure your hand is well lit and clearly visible\", \"If the box turns green, stay still — capture is about to happen\", \"Hold your hand at a comfortable distance, not too close or too far\"]"
     },
