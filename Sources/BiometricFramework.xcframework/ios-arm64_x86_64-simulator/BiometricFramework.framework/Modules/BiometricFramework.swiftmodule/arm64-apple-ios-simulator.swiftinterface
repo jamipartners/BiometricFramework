@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
-// swift-module-flags: -target arm64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BiometricFramework
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BiometricFramework
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import AVFoundation
 import Accelerate
 @_exported import BiometricFramework
@@ -11,15 +11,16 @@ import CoreImage
 @_exported import CoreML
 import CoreMedia
 import CoreVideo
-import CryptoKit
 import DeveloperToolsSupport
 import Foundation
 import ImageIO
 import Metal
+import Network
 import Swift
 import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
+import Vision
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
@@ -29,13 +30,21 @@ public struct NadraAttemptCounters : Swift.Decodable {
     case rightFingers
     case leftThumb
     case rightThumb
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(stringValue: Swift.String)
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(intValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.String
+    #if compiler(>=5.3) && $NonescapableTypes
     public var intValue: Swift.Int? {
       get
     }
+    #endif
     public var rawValue: Swift.String {
       get
     }
@@ -51,13 +60,21 @@ public struct NadraResponses : Swift.Decodable {
     case responseMessage
     case responseProcessID
     case attemptCounters
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(stringValue: Swift.String)
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(intValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.String
+    #if compiler(>=5.3) && $NonescapableTypes
     public var intValue: Swift.Int? {
       get
     }
+    #endif
     public var rawValue: Swift.String {
       get
     }
@@ -81,7 +98,9 @@ public struct NadraResponses : Swift.Decodable {
     set
   }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @objc deinit
 }
@@ -89,7 +108,9 @@ public struct NadraResponses : Swift.Decodable {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers public class CameraFeedManagerThumb : ObjectiveC.NSObject {
@@ -114,10 +135,12 @@ extension BiometricFramework.CameraFeedManagerThumb : AVFoundation.AVCaptureVide
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public var modelDataHandler: (any BiometricFramework.DetectionHandling)? {
     get
     set
   }
+  #endif
   @_Concurrency.MainActor @preconcurrency public var isCapture: Swift.Bool
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didReceiveMemoryWarning()
@@ -127,8 +150,12 @@ extension BiometricFramework.CameraFeedManagerThumb : AVFoundation.AVCaptureVide
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension BiometricFramework.BiometricVC : BiometricFramework.CameraFeedManagerDelegate {
@@ -156,12 +183,18 @@ public enum Yolov5 {
   final public let rgbPixelChannels: Swift.Int
   final public let colorStrideValue: Swift.Int
   final public let colors: [UIKit.UIColor]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(modelFileInfo: BiometricFramework.FileInfo, labelsFileInfo: BiometricFramework.FileInfo, threadCount: Swift.Int = 1)
+  #endif
   @objc deinit
+  #if compiler(>=5.3) && $NonescapableTypes
   public func runModel(onFrame pixelBuffer: CoreVideo.CVPixelBuffer) -> BiometricFramework.Result?
+  #endif
   public func formatResults(boundingBox: [Swift.Float], outputClasses: [Swift.Float], outputScores: [Swift.Float], outputCount: Swift.Int, width: CoreFoundation.CGFloat, height: CoreFoundation.CGFloat) -> [BiometricFramework.Inference]
   public func loadLabels(fileInfo: BiometricFramework.FileInfo)
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func rgbDataFromBuffer(_ buffer: CoreVideo.CVPixelBuffer, byteCount: Swift.Int, isModelQuantized: Swift.Bool, imageMean: Swift.Float, imageStd: Swift.Float) -> Foundation.Data?
+  #endif
   public func colorForClass(withIndex index: Swift.Int) -> UIKit.UIColor
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class VerticalProgressBar : UIKit.UIView {
@@ -177,15 +210,19 @@ public enum Yolov5 {
   @_Concurrency.MainActor @preconcurrency public func showArrow()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class ThumbVC : BiometricFramework.BaseBiometricVC {
   @_Concurrency.MainActor @preconcurrency public init(target: BiometricFramework.CaptureTarget)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public var modelDataHandler: (any BiometricFramework.DetectionHandling)? {
     get
     set
   }
+  #endif
   @_Concurrency.MainActor @preconcurrency public var cameraFeedManager: BiometricFramework.CameraFeedManagerThumb {
     get
     set
@@ -217,19 +254,33 @@ extension BiometricFramework.ThumbVC : BiometricFramework.BioReleaseService {
   @_Concurrency.MainActor @preconcurrency public func reloadReleaseData()
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class InfoCell : UIKit.UITableViewCell {
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(iOS 3.0, *)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class UIUtilities {
   public static func addCircle(atPoint point: CoreFoundation.CGPoint, to view: UIKit.UIView, color: UIKit.UIColor, radius: CoreFoundation.CGFloat)
   public static func addRectangle(_ rectangle: CoreFoundation.CGRect, to view: UIKit.UIView, color: UIKit.UIColor)
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func addShape(withPoints points: [Foundation.NSValue]?, to view: UIKit.UIView, color: UIKit.UIColor)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func createUIImage(from imageBuffer: CoreVideo.CVImageBuffer, orientation: UIKit.UIImage.Orientation) -> UIKit.UIImage?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func createImageBuffer(from image: UIKit.UIImage) -> CoreVideo.CVImageBuffer?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func rotate(image: UIKit.UIImage, degree: Swift.Int) -> UIKit.UIImage?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func masking(image: UIKit.UIImage, rect: CoreFoundation.CGRect) -> UIKit.UIImage?
+  #endif
   public static func calculateScreenHeight(height: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
   @objc deinit
 }
@@ -237,8 +288,12 @@ extension BiometricFramework.ThumbVC : BiometricFramework.BioReleaseService {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didReceiveMemoryWarning()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension BiometricFramework.UserInputViewController : BiometricFramework.BiometricViewControllerDelegate {
@@ -246,8 +301,12 @@ extension BiometricFramework.UserInputViewController : BiometricFramework.Biomet
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CustomNavigationController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class RightVerticalProgressBar : UIKit.UIView {
@@ -264,21 +323,31 @@ extension BiometricFramework.UserInputViewController : BiometricFramework.Biomet
   @_Concurrency.MainActor @preconcurrency public func showArrow()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
 }
 extension UIKit.UIImageView {
   @_Concurrency.MainActor @preconcurrency public func loadGif(name: Swift.String, bundle: Foundation.Bundle)
 }
 extension UIKit.UIImage {
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func gif(data: Foundation.Data) -> UIKit.UIImage?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func gif(url: Swift.String) -> UIKit.UIImage?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func gif(name: Swift.String, bundle: Foundation.Bundle) -> UIKit.UIImage?
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassport : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class SelectorViewController : BiometricFramework.BaseBiometricVC {
@@ -298,7 +367,9 @@ extension UIKit.UIImage {
   @_Concurrency.MainActor @preconcurrency public func updateBorderColor(_ color: UIKit.UIColor)
   @_Concurrency.MainActor @preconcurrency public func setHoldProgress(_ progress: CoreFoundation.CGFloat)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   public struct Fractions : Swift.Equatable {
     public let outer: CoreFoundation.CGFloat
@@ -319,20 +390,25 @@ extension UIKit.UIImage {
   @objc deinit
 }
 public typealias Handler<T> = (BiometricFramework.Result) -> Swift.Void
-@objc @_inheritsConvenienceInitializers public class APIManager : ObjectiveC.NSObject, Foundation.URLSessionDelegate {
-  public var sslPinning: Swift.Bool
-  public var publicKey: Swift.String
-  @objc public func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+public enum DataError : Swift.Error {
+  case invalidResponse
+  case invalidURL
+  case invalidData
+  case invalidImage
+  case network((any Swift.Error)?)
+}
+@_hasMissingDesignatedInitializers public class APIManager {
   public func tokentRequest<T>(bundleId: Swift.String) async throws -> T where T : Swift.Decodable
-  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String, token: Swift.String, isEncrypted: Swift.Bool, isThumb: Swift.Bool) async throws -> T where T : Swift.Decodable
-  @objc override dynamic public init()
+  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, imageType: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String, faceImages: [UIKit.UIImage], isEncrypted: Swift.Bool, isThumb: Swift.Bool = false) async throws -> T where T : Swift.Decodable
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassportInner : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 public struct ValidateToken : Swift.Decodable {
@@ -340,13 +416,21 @@ public struct ValidateToken : Swift.Decodable {
     case responseCode
     case responseMessage
     case token
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(stringValue: Swift.String)
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(intValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.String
+    #if compiler(>=5.3) && $NonescapableTypes
     public var intValue: Swift.Int? {
       get
     }
+    #endif
     public var rawValue: Swift.String {
       get
     }
@@ -375,7 +459,9 @@ extension BiometricFramework.CameraFeedManager : AVFoundation.AVCaptureVideoData
   }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 public protocol BiometricViewControllerDelegate : AnyObject {
@@ -383,8 +469,12 @@ public protocol BiometricViewControllerDelegate : AnyObject {
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class BaseBiometricVC : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency weak public var delegate: (any BiometricFramework.BiometricViewControllerDelegate)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension BiometricFramework.BaseBiometricVC : BiometricFramework.BioTokenServices {
@@ -395,15 +485,21 @@ public enum Yolov8 {
   public static let labelsInfo: (name: Swift.String, extension: Swift.String)
 }
 @objc public class ThumbDataHandler : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(modelFileInfo: BiometricFramework.FileInfo, labelsFileInfo: BiometricFramework.FileInfo, threadCount: Swift.Int = 4)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func runModel(onFrame pixelBuffer: CoreVideo.CVPixelBuffer) -> BiometricFramework.Result?
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassportInnerR : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 public struct BiometricConfig {
@@ -411,6 +507,7 @@ public struct BiometricConfig {
   public var sslPinning: Swift.Bool
   public var publicKey: Swift.String
   public var isEncrypted: Swift.Bool
+  public var forceIPv4: Swift.Bool
   public var name: Swift.String
   public var nic: Swift.String
   public var issueDate: Swift.String
@@ -467,7 +564,9 @@ public enum CaptureTarget {
   }
 }
 public protocol DetectionHandling : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   func runModel(onFrame pixelBuffer: CoreVideo.CVPixelBuffer) -> BiometricFramework.Result?
+  #endif
 }
 extension BiometricFramework.ModelDataHandler : BiometricFramework.DetectionHandling {
 }
@@ -488,7 +587,10 @@ public protocol BioReleaseService : AnyObject {
     get
     set
   }
-  public var errorMessage: Swift.String?
+  public var lastError: BiometricFramework.DataError? {
+    get
+    set
+  }
   final public let manager: BiometricFramework.APIManager
   @objc deinit
 }
