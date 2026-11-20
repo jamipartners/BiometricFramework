@@ -1,0 +1,77 @@
+[
+  {
+    "shortDescription" : "MiniFASNet v2 face anti-spoofing",
+    "metadataOutputVersion" : "3.0",
+    "outputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 1 × 2)",
+        "shortDescription" : "",
+        "shape" : "[1, 2]",
+        "name" : "var_1259",
+        "type" : "MultiArray"
+      }
+    ],
+    "version" : "1.0",
+    "modelParameters" : [
+
+    ],
+    "author" : "hairymax\/Face-AntiSpoofing",
+    "specificationVersion" : 6,
+    "storagePrecision" : "Float16",
+    "mlProgramOperationTypeHistogram" : {
+      "Reshape" : 1,
+      "Linear" : 2,
+      "NonZero" : 66,
+      "GreaterEqual" : 33,
+      "Transpose" : 1,
+      "Relu" : 3,
+      "Mul" : 36,
+      "Cast" : 35,
+      "ReduceMean" : 3,
+      "Add" : 12,
+      "ScatterNd" : 33,
+      "Sigmoid" : 3,
+      "GatherNd" : 33,
+      "Conv" : 55,
+      "Pad" : 4
+    },
+    "computePrecision" : "Mixed (Float16, Float32, Int32)",
+    "stateSchema" : [
+
+    ],
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "12.0",
+      "tvOS" : "15.0",
+      "visionOS" : "1.0",
+      "watchOS" : "8.0",
+      "iOS" : "15.0",
+      "macCatalyst" : "15.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_mlProgram"
+    },
+    "inputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 1 × 128 × 128 × 3)",
+        "shortDescription" : "",
+        "shape" : "[1, 128, 128, 3]",
+        "name" : "input",
+        "type" : "MultiArray"
+      }
+    ],
+    "userDefinedMetadata" : {
+      "com.github.apple.coremltools.version" : "7.2",
+      "com.github.apple.coremltools.source" : "torch==2.1.2",
+      "com.github.apple.coremltools.source_dialect" : "TorchScript"
+    },
+    "generatedClassName" : "MiniFASNet",
+    "method" : "predict"
+  }
+]

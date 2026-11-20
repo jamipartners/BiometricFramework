@@ -11,15 +11,16 @@ import CoreImage
 @_exported import CoreML
 import CoreMedia
 import CoreVideo
-import CryptoKit
 import DeveloperToolsSupport
 import Foundation
 import ImageIO
 import Metal
+import Network
 import Swift
 import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
+import Vision
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
@@ -319,13 +320,16 @@ extension UIKit.UIImage {
   @objc deinit
 }
 public typealias Handler<T> = (BiometricFramework.Result) -> Swift.Void
-@objc @_inheritsConvenienceInitializers public class APIManager : ObjectiveC.NSObject, Foundation.URLSessionDelegate {
-  public var sslPinning: Swift.Bool
-  public var publicKey: Swift.String
-  @objc public func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+public enum DataError : Swift.Error {
+  case invalidResponse
+  case invalidURL
+  case invalidData
+  case invalidImage
+  case network((any Swift.Error)?)
+}
+@_hasMissingDesignatedInitializers public class APIManager {
   public func tokentRequest<T>(bundleId: Swift.String) async throws -> T where T : Swift.Decodable
-  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, hand: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String, token: Swift.String, isEncrypted: Swift.Bool, isThumb: Swift.Bool) async throws -> T where T : Swift.Decodable
-  @objc override dynamic public init()
+  public func nadraReleaseRequest<T>(file: UIKit.UIImage, processid: Swift.String, nic: Swift.String, issueDate: Swift.String, mobileNo: Swift.String, imageType: Swift.String, area: Swift.String, imei: Swift.String, ip_address: Swift.String, Longitude: Swift.String, Latitude: Swift.String, faceImages: [UIKit.UIImage], isEncrypted: Swift.Bool, isThumb: Swift.Bool = false) async throws -> T where T : Swift.Decodable
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class CameraViewPortPassportInner : UIKit.UIView {
@@ -411,6 +415,7 @@ public struct BiometricConfig {
   public var sslPinning: Swift.Bool
   public var publicKey: Swift.String
   public var isEncrypted: Swift.Bool
+  public var forceIPv4: Swift.Bool
   public var name: Swift.String
   public var nic: Swift.String
   public var issueDate: Swift.String
@@ -488,7 +493,10 @@ public protocol BioReleaseService : AnyObject {
     get
     set
   }
-  public var errorMessage: Swift.String?
+  public var lastError: BiometricFramework.DataError? {
+    get
+    set
+  }
   final public let manager: BiometricFramework.APIManager
   @objc deinit
 }

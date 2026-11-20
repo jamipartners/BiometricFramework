@@ -375,43 +375,9 @@ extern "C" {
 
 #if defined(__OBJC__)
 
-@class NSURLSession;
-@class NSURLAuthenticationChallenge;
-@class NSURLCredential;
-SWIFT_CLASS("_TtC18BiometricFramework10APIManager")
-@interface APIManager : NSObject <NSURLSessionDelegate>
-- (void)URLSession:(NSURLSession * _Nonnull)session didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class NSString;
 @class NSBundle;
 @class NSCoder;
-/// Shared base for <code>SelectorViewController</code>, <code>BiometricVC</code> and <code>ThumbVC</code>.
-/// Direct translation of Android’s <code>BaseBiometricActivity</code>, which centralises the same
-/// four things for <code>SelectorActivity</code>, <code>Biometrics</code> and <code>BiometricThumb</code>:
-/// <ul>
-///   <li>
-///     the token bootstrap — <code>initAndFetchToken()</code> reads the server config, refuses an
-///     empty URL, calls <code>/validate</code> once and hands control back through <code>onTokenReady()</code>.
-///     Only the selector calls it; the capture screens skip the token step entirely and
-///     go straight to their camera, exactly as the Android comment on <code>Biometrics</code> says.
-///   </li>
-///   <li>
-///     the error dialog (<code>showDialog</code>), whose OK ends the visit with “Cancelled”.
-///   </li>
-///   <li>
-///     the exit-confirmation dialog, built on demand and thrown away on dismissal —
-///     Android constructs a fresh <code>Dialog</code> per showing, and building it in code here is
-///     what lets the <code>BiometricVC</code> storyboard scene be deleted.
-///   </li>
-///   <li>
-///     <code>finishParentWithResult</code>, the one exit that reports the verdict to the host.
-///   </li>
-/// </ul>
-/// What Android’s base has that this one deliberately does not: the intent-extra key
-/// constants (the keys became <code>BiometricConfig</code>’s fields) and the static application
-/// context (a UIViewController already has everything a Context provides).
 SWIFT_CLASS("_TtC18BiometricFramework15BaseBiometricVC")
 @interface BaseBiometricVC : UIViewController
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -601,6 +567,20 @@ SWIFT_CLASS("_TtC18BiometricFramework8InfoCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+SWIFT_CLASS("_TtC18BiometricFramework22LivenessViewController")
+@interface LivenessViewController : BaseBiometricVC
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface LivenessViewController (SWIFT_EXTENSION(BiometricFramework)) <AVCaptureVideoDataOutputSampleBufferDelegate>
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+@end
+
 /// This class handles all data preprocessing and makes calls to run inference on a given frame
 /// by invoking the <code>Interpreter</code>. It then formats the inferences obtained and returns the top N
 /// results for a successful inference.
@@ -770,14 +750,6 @@ SWIFT_CLASS("_TtC18BiometricFramework13ThumbViewPort")
 @class UISwitch;
 @class UIButton;
 @class NSNotification;
-/// The demo host — iOS’s <code>HomeActivity</code>.
-/// Not part of the SDK. It plays the role a real client (a bank’s app) plays in
-/// production: collect the person’s details, build a <code>BiometricConfig</code>, present
-/// <code>SelectorViewController</code>, and receive the verdict through
-/// <code>BiometricViewControllerDelegate</code>. The SDK’s entry point is the selector; nothing
-/// below it knows this screen exists.
-/// Everything hardcoded here — the test CNIC, the IMEI, the coordinates, the
-/// development <code>baseURL</code> — belongs to the demo and must never move back into the SDK.
 SWIFT_CLASS("_TtC18BiometricFramework23UserInputViewController")
 @interface UserInputViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified name;
