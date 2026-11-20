@@ -29,6 +29,403 @@
         "moduleName": "BiometricFramework"
       },
       {
+        "kind": "TypeDecl",
+        "name": "LivenessViewController",
+        "printedName": "LivenessViewController",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "viewDidLoad",
+            "printedName": "viewDidLoad()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController(im)viewDidLoad",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC11viewDidLoadyyF",
+            "moduleName": "BiometricFramework",
+            "overriding": true,
+            "objc_name": "viewDidLoad",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewWillAppear",
+            "printedName": "viewWillAppear(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController(im)viewWillAppear:",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC14viewWillAppearyySbF",
+            "moduleName": "BiometricFramework",
+            "overriding": true,
+            "objc_name": "viewWillAppear:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewWillDisappear",
+            "printedName": "viewWillDisappear(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController(im)viewWillDisappear:",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC17viewWillDisappearyySbF",
+            "moduleName": "BiometricFramework",
+            "overriding": true,
+            "objc_name": "viewWillDisappear:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewDidLayoutSubviews",
+            "printedName": "viewDidLayoutSubviews()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController(im)viewDidLayoutSubviews",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC21viewDidLayoutSubviewsyyF",
+            "moduleName": "BiometricFramework",
+            "overriding": true,
+            "objc_name": "viewDidLayoutSubviews",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nibName:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LivenessViewController",
+                "printedName": "BiometricFramework.LivenessViewController",
+                "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController(im)initWithNibName:bundle:",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
+            "moduleName": "BiometricFramework",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithNibName:bundle:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "BiometricFramework.LivenessViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LivenessViewController",
+                    "printedName": "BiometricFramework.LivenessViewController",
+                    "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController(im)initWithCoder:",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "BiometricFramework",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "Required"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "captureOutput",
+            "printedName": "captureOutput(_:didOutput:from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AVCaptureOutput",
+                "printedName": "AVFoundation.AVCaptureOutput",
+                "usr": "c:objc(cs)AVCaptureOutput"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CMSampleBuffer",
+                "printedName": "CoreMedia.CMSampleBuffer",
+                "usr": "c:@T@CMSampleBufferRef"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AVCaptureConnection",
+                "printedName": "AVFoundation.AVCaptureConnection",
+                "usr": "c:objc(cs)AVCaptureConnection"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@BiometricFramework@objc(cs)LivenessViewController(im)captureOutput:didOutputSampleBuffer:fromConnection:",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC13captureOutput_03didG04fromySo09AVCaptureG0C_So17CMSampleBufferRefaSo0J10ConnectionCtF",
+            "moduleName": "BiometricFramework",
+            "objc_name": "captureOutput:didOutputSampleBuffer:fromConnection:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reloadReleaseData",
+            "printedName": "reloadReleaseData()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18BiometricFramework22LivenessViewControllerC17reloadReleaseDatayyF",
+            "mangledName": "$s18BiometricFramework22LivenessViewControllerC17reloadReleaseDatayyF",
+            "moduleName": "BiometricFramework",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@BiometricFramework@objc(cs)LivenessViewController",
+        "mangledName": "$s18BiometricFramework22LivenessViewControllerC",
+        "moduleName": "BiometricFramework",
+        "declAttributes": [
+          "Preconcurrency",
+          "Custom",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@BiometricFramework@objc(cs)BaseBiometricVC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "BiometricFramework.BaseBiometricVC",
+          "UIKit.UIViewController",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "BioReleaseService",
+            "printedName": "BioReleaseService",
+            "usr": "s:18BiometricFramework17BioReleaseServiceP",
+            "mangledName": "$s18BiometricFramework17BioReleaseServiceP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "BioTokenServices",
+            "printedName": "BioTokenServices",
+            "usr": "s:18BiometricFramework16BioTokenServicesP",
+            "mangledName": "$s18BiometricFramework16BioTokenServicesP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "AVFoundation",
         "printedName": "AVFoundation",
@@ -16100,98 +16497,98 @@
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "StringLiteral",
-      "offset": 279,
+      "offset": 286,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "StringLiteral",
-      "offset": 398,
+      "offset": 405,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "StringLiteral",
-      "offset": 647,
+      "offset": 654,
       "length": 25,
       "value": "\"com.liveness.videoQueue\""
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 982,
+      "offset": 989,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 1044,
+      "offset": 1051,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "Array",
-      "offset": 1155,
+      "offset": 1162,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1192,
+      "offset": 1199,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1313,
+      "offset": 1320,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1373,
+      "offset": 1380,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1654,
+      "offset": 1661,
       "length": 20,
       "value": "\"Starting camera...\""
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "Array",
-      "offset": 1717,
+      "offset": 1724,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1871,
+      "offset": 1878,
       "length": 12,
       "value": "\"Processing\""
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2235,
+      "offset": 2242,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/mustafa\/Documents\/IOS Projects\/BiometricFramework-code\/BiometricFramework\/ObjectDetection\/ViewControllers\/LivenessViewController.swift",
       "kind": "Array",
-      "offset": 2281,
+      "offset": 2288,
       "length": 2,
       "value": "[]"
     },
