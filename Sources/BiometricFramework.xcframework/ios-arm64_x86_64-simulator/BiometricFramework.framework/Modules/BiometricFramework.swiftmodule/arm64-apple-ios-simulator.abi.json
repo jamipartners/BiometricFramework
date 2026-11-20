@@ -14717,6 +14717,58 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "adopt",
+            "printedName": "adopt(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BiometricConfig",
+                "printedName": "BiometricFramework.BiometricConfig",
+                "usr": "s:18BiometricFramework0A6ConfigV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18BiometricFramework0A6ConfigV5adoptyyACFZ",
+            "mangledName": "$s18BiometricFramework0A6ConfigV5adoptyyACFZ",
+            "moduleName": "BiometricFramework",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "clear",
+            "printedName": "clear()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18BiometricFramework0A6ConfigV5clearyyFZ",
+            "mangledName": "$s18BiometricFramework0A6ConfigV5clearyyFZ",
+            "moduleName": "BiometricFramework",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Struct",

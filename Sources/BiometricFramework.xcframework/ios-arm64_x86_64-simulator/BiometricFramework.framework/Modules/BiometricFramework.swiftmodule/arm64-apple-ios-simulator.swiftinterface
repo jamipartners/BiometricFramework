@@ -450,6 +450,8 @@ extension BiometricFramework.BiometricConfig {
   public static var active: BiometricFramework.BiometricConfig {
     get
   }
+  public static func adopt(_ config: BiometricFramework.BiometricConfig)
+  public static func clear()
 }
 public enum CaptureTarget {
   case leftHand

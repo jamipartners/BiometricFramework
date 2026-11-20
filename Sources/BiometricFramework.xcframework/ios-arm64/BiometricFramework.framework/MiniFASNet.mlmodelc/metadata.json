@@ -67,9 +67,9 @@
       }
     ],
     "userDefinedMetadata" : {
-      "com.github.apple.coremltools.version" : "7.2",
+      "com.github.apple.coremltools.source_dialect" : "TorchScript",
       "com.github.apple.coremltools.source" : "torch==2.1.2",
-      "com.github.apple.coremltools.source_dialect" : "TorchScript"
+      "com.github.apple.coremltools.version" : "7.2"
     },
     "generatedClassName" : "MiniFASNet",
     "method" : "predict"
